@@ -1,0 +1,68 @@
+{
+  "sites": [
+    {
+      "name": "beatport",
+      "baseUrl": "https://www.beatport.com",
+      "searchPageSlug": "/search?q=",
+
+      "resultPageSelectors": [
+        {
+          "name": "title",
+          "selector": "div.tracks li.track span.buk-track-primary-title"
+        },
+        {
+          "name": "subtitle",
+          "selector": "div.tracks li.track span.buk-track-remixed"
+        },
+        {
+          "name": "artist",
+          "selector": "div.tracks li.track",
+          "attribute": "data-ec-d1"
+        },
+        {
+          "name": "href",
+          "selector": "div.tracks li.track p.buk-track-title a",
+          "attribute": "href"
+        }
+      ],
+
+      "trackPageSelectors": [
+        {
+          "name": "artwork",
+          "selector": "img.interior-track-release-artwork",
+          "attribute": "src",
+          "ignoreSubsequentMatchingEls": true
+        },
+        {
+          " name": "artist",
+          "selector": "div.interior-track-artists span.value a"
+        },
+        {
+          "name": "title",
+          "selector": "div.interior-title h1",
+          "bracketSubsequentMatchingEls": true
+        },
+        {
+          "name": "album",
+          "selector": "li.interior-track-releases-artwork-container",
+          "attribute": "data-ec-name",
+          "ignoreSubsequentMatchingEls": true
+        },
+        {
+          "name": "date",
+          "selector": "ul.interior-track-content-list li.interior-track-released span.value"
+        },
+        {
+          "name": "label",
+          "selector": "ul.interior-track-content-list li.interior-track-labels span.value a",
+          "ignoreSubsequentMatchingEls": true
+        },
+        {
+          "name": "genre",
+          "selector": "ul.interior-track-content-list li.interior-track-genre span.value a",
+          "ignoreSubsequentMatchingEls": true
+        }
+      ]
+    }
+  ]
+}
