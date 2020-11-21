@@ -105,6 +105,8 @@ const getUrlOfFirstResult = (
   );
 
   if (!values || !values.title || !values.title.length) {
+    console.log(`
+    😞 No results were found for "${fileName}" on ${siteConfig.name}`);
     return false;
   }
 
@@ -200,7 +202,13 @@ const convertFileNameToSearchQuery = (filename) => {
   );
 
   const withVersionString =
-    replaced.indexOf("mix") >= 0 ? replaced : replaced + "+original+mix";
+    replaced.indexOf("mix") >= 0 ||
+    replaced.indexOf("version") >= 0 ||
+    replaced.indexOf("extended") >= 0 ||
+    replaced.indexOf("refix") >= 0 ||
+    replaced.indexOf("vip") >= 0
+      ? replaced
+      : replaced + "+original+mix";
 
   return withVersionString;
 };
